@@ -4,17 +4,17 @@ from typing import List, Tuple, Optional
 
 from blspy import AugSchemeMPL, G1Element, G2Element, PrivateKey
 
-from chia.types.blockchain_format.program import Program
-from chia.types.blockchain_format.sized_bytes import bytes32
-from chia.types.blockchain_format.coin import Coin
-from chia.types.coin_spend import CoinSpend
-from chia.types.spend_bundle import SpendBundle
-from chia.util.errors import Err
-from chia.util.condition_tools import ConditionOpcode
-from chia.util.ints import uint64
-from chia.consensus.default_constants import DEFAULT_CONSTANTS
-from chia.wallet.lineage_proof import LineageProof
-from chia.wallet.puzzles import (
+from bytecash.types.blockchain_format.program import Program
+from bytecash.types.blockchain_format.sized_bytes import bytes32
+from bytecash.types.blockchain_format.coin import Coin
+from bytecash.types.coin_spend import CoinSpend
+from bytecash.types.spend_bundle import SpendBundle
+from bytecash.util.errors import Err
+from bytecash.util.condition_tools import ConditionOpcode
+from bytecash.util.ints import uint64
+from bytecash.consensus.default_constants import DEFAULT_CONSTANTS
+from bytecash.wallet.lineage_proof import LineageProof
+from bytecash.wallet.puzzles import (
     p2_conditions,
     p2_delegated_puzzle_or_hidden_puzzle,
     singleton_top_layer,
@@ -25,14 +25,14 @@ from tests.clvm.test_puzzles import (
     secret_exponent_for_index,
 )
 
-from chia.clvm.spend_sim import SpendSim, SimClient
+from bytecash.clvm.spend_sim import SpendSim, SimClient
 
 """
 This test suite aims to test:
-    - chia.wallet.puzzles.singleton_top_layer.py
-    - chia.wallet.puzzles.singleton_top_layer.clvm
-    - chia.wallet.puzzles.p2_singleton.clvm
-    - chia.wallet.puzzles.p2_singleton_or_delayed_puzhash.clvm
+    - bytecash.wallet.puzzles.singleton_top_layer.py
+    - bytecash.wallet.puzzles.singleton_top_layer.clvm
+    - bytecash.wallet.puzzles.p2_singleton.clvm
+    - bytecash.wallet.puzzles.p2_singleton_or_delayed_puzhash.clvm
 """
 
 

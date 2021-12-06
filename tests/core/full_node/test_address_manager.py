@@ -5,10 +5,10 @@ from pathlib import Path
 
 import pytest
 
-from chia.server.address_manager import AddressManager, ExtendedPeerInfo
-from chia.server.address_manager_store import AddressManagerStore
-from chia.types.peer_info import PeerInfo, TimestampedPeerInfo
-from chia.util.ints import uint16, uint64
+from bytecash.server.address_manager import AddressManager, ExtendedPeerInfo
+from bytecash.server.address_manager_store import AddressManagerStore
+from bytecash.types.peer_info import PeerInfo, TimestampedPeerInfo
+from bytecash.util.ints import uint16, uint64
 
 
 @pytest.fixture(scope="module")

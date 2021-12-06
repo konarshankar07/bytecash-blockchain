@@ -1,5 +1,5 @@
 #
-# THIS FILE IS GENERATED. SEE https://github.com/Chia-Network/chia-blockchain/tree/main/tests#readme
+# THIS FILE IS GENERATED. SEE https://github.com/Bytecash-Network/bytecash-blockchain/tree/main/tests#readme
 #
 name: MacOS clvm Tests
 
@@ -63,7 +63,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-pip-
 
-# Omitted checking out blocks and plots repo Chia-Network/test-cache
+# Omitted checking out blocks and plots repo Bytecash-Network/test-cache
 
     - name: Run install script
       env:
@@ -80,5 +80,5 @@ jobs:
         . ./activate
         ./venv/bin/py.test tests/clvm/test_*.py -s -v --durations 0 -n auto
 #
-# THIS FILE IS GENERATED. SEE https://github.com/Chia-Network/chia-blockchain/tree/main/tests#readme
+# THIS FILE IS GENERATED. SEE https://github.com/Bytecash-Network/bytecash-blockchain/tree/main/tests#readme
 #

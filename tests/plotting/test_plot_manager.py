@@ -6,7 +6,7 @@ from typing import Callable, List
 import pytest
 
 from dataclasses import dataclass
-from chia.plotting.util import (
+from bytecash.plotting.util import (
     PlotRefreshResult,
     PlotRefreshEvents,
     remove_plot,
@@ -14,9 +14,9 @@ from chia.plotting.util import (
     add_plot_directory,
     remove_plot_directory,
 )
-from chia.util.config import create_default_chia_config
-from chia.util.path import mkdir
-from chia.plotting.manager import PlotManager
+from bytecash.util.config import create_default_bytecash_config
+from bytecash.util.path import mkdir
+from bytecash.plotting.manager import PlotManager
 from tests.block_tools import get_plot_dir
 from tests.setup_nodes import bt
 from tests.time_out_assert import time_out_assert
@@ -69,7 +69,7 @@ def test_environment(tmp_path) -> TestEnvironment:
 
     dir_1: TestDirectory = TestDirectory(tmp_path / "plots" / "1", plots[0:dir_1_count])
     dir_2: TestDirectory = TestDirectory(tmp_path / "plots" / "2", plots[dir_1_count : dir_1_count + dir_2_count])
-    create_default_chia_config(tmp_path)
+    create_default_bytecash_config(tmp_path)
 
     plot_manager = PlotManager(tmp_path, refresh_callback)
     plot_manager.set_public_keys(bt.plot_manager.farmer_public_keys, bt.plot_manager.pool_public_keys)

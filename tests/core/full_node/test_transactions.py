@@ -4,13 +4,13 @@ from typing import Optional
 
 import pytest
 
-from chia.consensus.block_record import BlockRecord
-from chia.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
-from chia.full_node.full_node_api import FullNodeAPI
-from chia.protocols import full_node_protocol
-from chia.simulator.simulator_protocol import FarmNewBlockProtocol
-from chia.types.peer_info import PeerInfo
-from chia.util.ints import uint16, uint32
+from bytecash.consensus.block_record import BlockRecord
+from bytecash.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
+from bytecash.full_node.full_node_api import FullNodeAPI
+from bytecash.protocols import full_node_protocol
+from bytecash.simulator.simulator_protocol import FarmNewBlockProtocol
+from bytecash.types.peer_info import PeerInfo
+from bytecash.util.ints import uint16, uint32
 from tests.setup_nodes import self_hostname, setup_simulators_and_wallets
 from tests.time_out_assert import time_out_assert
 

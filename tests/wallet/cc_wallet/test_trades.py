@@ -4,12 +4,12 @@ from secrets import token_bytes
 
 import pytest
 
-from chia.simulator.simulator_protocol import FarmNewBlockProtocol
-from chia.types.peer_info import PeerInfo
-from chia.util.ints import uint16, uint64
-from chia.wallet.cc_wallet.cc_wallet import CCWallet
-from chia.wallet.trade_manager import TradeManager
-from chia.wallet.trading.trade_status import TradeStatus
+from bytecash.simulator.simulator_protocol import FarmNewBlockProtocol
+from bytecash.types.peer_info import PeerInfo
+from bytecash.util.ints import uint16, uint64
+from bytecash.wallet.cc_wallet.cc_wallet import CCWallet
+from bytecash.wallet.trade_manager import TradeManager
+from bytecash.wallet.trading.trade_status import TradeStatus
 from tests.setup_nodes import setup_simulators_and_wallets
 from tests.time_out_assert import time_out_assert
 from tests.wallet.sync.test_wallet_sync import wallet_height_at_least
@@ -125,7 +125,7 @@ class TestCCTrades:
         assert success is True
         assert offer is not None
 
-        assert offer["chia"] == -10
+        assert offer["bytecash"] == -10
         assert offer[colour] == 30
 
         success, trade, reason = await trade_manager_1.respond_to_offer(file_path)
@@ -197,7 +197,7 @@ class TestCCTrades:
 
         assert cc_wallet.get_colour() == cc_wallet_2.get_colour()
 
-        assert offer["chia"] == -10
+        assert offer["bytecash"] == -10
         assert offer[colour] == 30
 
         success, trade, reason = await trade_manager_1.respond_to_offer(file_path)
@@ -277,7 +277,7 @@ class TestCCTrades:
         assert error is None
         assert success is True
         assert offer is not None
-        assert offer["chia"] == -1000
+        assert offer["bytecash"] == -1000
 
         colour_2 = cc_a_2.get_colour()
         colour_3 = cc_a_3.get_colour()
@@ -390,14 +390,14 @@ class TestCCTrades:
         success, trade_offer, error = await trade_manager_a.create_offer_for_ids(offer_dict, file)
         await asyncio.sleep(1)
 
-        spendable_chia_after = await wallet_a.get_spendable_balance()
+        spendable_bytecash_after = await wallet_a.get_spendable_balance()
 
         locked_coin = await trade_manager_a.get_locked_coins(wallet_a.id())
         locked_sum = 0
         for name, record in locked_coin.items():
             locked_sum += record.coin.amount
 
-        assert spendable_chia == spendable_chia_after + locked_sum
+        assert spendable_chia == spendable_bytecash_after + locked_sum
         assert success is True
         assert trade_offer is not None
 
@@ -438,14 +438,14 @@ class TestCCTrades:
         success, trade_offer, error = await trade_manager_a.create_offer_for_ids(offer_dict, file)
         await asyncio.sleep(1)
 
-        spendable_chia_after = await wallet_a.get_spendable_balance()
+        spendable_bytecash_after = await wallet_a.get_spendable_balance()
 
         locked_coin = await trade_manager_a.get_locked_coins(wallet_a.id())
         locked_sum = 0
         for name, record in locked_coin.items():
             locked_sum += record.coin.amount
 
-        assert spendable_chia == spendable_chia_after + locked_sum
+        assert spendable_chia == spendable_bytecash_after + locked_sum
         assert success is True
         assert trade_offer is not None
 
